@@ -4,7 +4,7 @@ Entites:   user: id, email id, password
            cart: id, customer, cartitem, total price
            cartitem: id, quantity, product, price
            customer: id, first name, last name, email address, phone number, billaddress, shipping address, user
-           products: id, name, image, price, category, description, manufacturer
+           products: id, name, price, category, description, manufacturer
            order: id, cart, customer, shipping address, billaddress, 
            bill address: id, address, city, state, zip, country, customer
            shipping address: id, address, city, state, zip, country, customer
