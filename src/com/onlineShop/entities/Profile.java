@@ -1,6 +1,7 @@
 package com.onlineShop.entities;
 
 public class Profile {
+	
   private String name;
   private int age;
   private String mobile;
