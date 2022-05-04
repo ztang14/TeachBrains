@@ -1,5 +1,5 @@
 Online Shop
-Entry -- Search -- Adding to the cart -- Payment -- Address(compare) -- Review ? -- Exit
+Entry -- Search -- Adding to the cart -- Payment -- Address(compare) -- Review  -- Exit
 
 Entites:   user: id, email id, password
            cart: id, customer, cartitem, total price
@@ -16,6 +16,6 @@ Conroller : cart: getid, getitem
             product: add, delete, update, get
             resgistration: resgister
             
-            question： create a method -- boolean canship -- save all zip in database -- if shipping address.zip in list return true -- (controller?)
-            
+            question： how to design check out -- interface of card information ?
+                       how to design review part?
             
