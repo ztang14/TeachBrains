@@ -1,3 +1,4 @@
+Online Shop
 Entry -- Search -- Adding to the cart -- Payment -- Address(compare) -- Review ? -- Exit
 
 Entites:   user: id, email id, password
