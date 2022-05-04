@@ -16,6 +16,6 @@ Conroller : cart: getid, getitem
             product: add, delete, update, get
             resgistration: resgister
             
-            question： how to design check out -- interface of card information ?
+            question： how to design check out 
                        how to design review part?
             
