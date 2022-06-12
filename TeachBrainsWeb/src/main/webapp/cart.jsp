@@ -71,8 +71,8 @@
 
 <div class="container">
   <div class="d-flex py-3">
-  <h3>Total price: $ ${(total>0)?dcf.format(total):0}</h3>
-  <a class="mx-3 btn btn-primary" href="CheckOutServlet">check out</a></div>
+  <div class="div-left"><h3>Total price: $ ${(total>0)?dcf.format(total):0}</h3></div>
+  <a class="mx-3 btn btn-primary" href="ToCheckoutPage">check out</a>
 </div> 
 <table class="table table-loght">
    <thead>

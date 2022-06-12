@@ -3,9 +3,11 @@ package Dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import entities.Customer;
 import entities.Order;
 import entities.Product;
 
@@ -82,4 +84,28 @@ public class OrderDao {
 			
 		}
 	}
+	
+	public List<Order> getAllOrders(){
+		  List<Order> orders = new ArrayList<Order>();
+		  
+		  try {
+			query = "SELECT * FROM orders";
+			psmt = this.con.prepareStatement(query);
+			rs = psmt.executeQuery();
+			while(rs.next()) {
+				Order row = new Order();
+				row.setOrderId(rs.getInt("o_id"));
+				row.setUid(rs.getInt("u_id"));
+				row.setId(rs.getInt("p_id"));
+				row.setQuantity(rs.getInt("o_quantity"));
+	            row.setDate(rs.getString("o_date"));
+				
+				orders.add(row);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		  return orders;
+		}
 }

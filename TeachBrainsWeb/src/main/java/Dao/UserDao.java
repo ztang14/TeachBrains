@@ -3,6 +3,7 @@ package Dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 
 import connection.DBCon;
 import entities.User;
@@ -53,7 +54,6 @@ public class UserDao {
 			user.setEmail(email);
 			user.setUsername(username);
 			user.setPassword(password);
-			System.out.print(email + username);
 			
 	    query = "INSERT INTO login(username, password, email)"
 				+ " values(?,?,?)";
@@ -75,8 +75,54 @@ public class UserDao {
 		    }catch(Exception e) {
 			e.printStackTrace();
 		    }
+		
 		}
 			return false;
 	}
 	
+	public boolean userExist(String username) {
+		query = "select 1 from login where username = ? limit 1";
+		try {
+
+			  psmt = this.con.prepareStatement(query);
+			 	  
+			  psmt.setString(1, username);
+			  
+			  rs = psmt.executeQuery();
+			  
+			  if(rs.next()) {
+				  return true;
+			  }
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
+	
+	public int getUserId(String username) {
+
+		int id = -1;
+		try {
+		  query = "SELECT * FROM login where username = ?";
+		  psmt = this.con.prepareStatement(query);
+		  psmt.setString(1, username);
+		  rs = psmt.executeQuery();
+		  
+		  if(rs.next()) {
+			  id = rs.getInt("id");
+		  }
+	    }catch(Exception e) {
+			e.printStackTrace();
+			System.out.print(e.getMessage());
+		}
+		return id;
+	}
+	
+	public boolean checkAdmin(String username, String pswd) {
+		if(username.equals("admin") && pswd.equals("admin")) {
+			return true;
+		}
+		return false;
+	}
 }

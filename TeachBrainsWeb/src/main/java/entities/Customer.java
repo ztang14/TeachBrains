@@ -7,6 +7,10 @@ public class Customer extends User{
 	private String firstName;
 	private String lastName;
 	private String address;
+	private Card payment;
+	
+	
+
 	public int getId() {
 		return id;
 	}
@@ -37,11 +41,20 @@ public class Customer extends User{
 	public void setAddress(String address) {
 		this.address = address;
 	}
+	public Card getPayment() {
+		return payment;
+	}
+	public void setPayment(Card payment) {
+		this.payment = payment;
+	}
 	@Override
 	public String toString() {
 		return "Customer [id=" + id + ", phone=" + phone + ", firstName=" + firstName + ", lastName=" + lastName
-				+ ", address=" + address + "]";
+				+ ", address=" + address + ", payment=" + payment + "]";
 	}
+
+
+
 	
 	
 	

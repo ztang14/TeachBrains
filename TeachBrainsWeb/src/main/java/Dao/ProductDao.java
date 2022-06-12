@@ -7,8 +7,10 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import connection.DBCon;
 import entities.Cart;
 import entities.Product;
+import entities.User;
 
 public class ProductDao {
 	
@@ -114,5 +116,34 @@ public class ProductDao {
 			
 		}
 		return row;
+	}
+	
+	public boolean addProduct(String name,String category, String img, double price) {
+		
+		
+
+		query = "INSERT INTO products(name, category, image, price)"
+				+ " values(?,?,?,?)";
+		try {
+
+		  psmt = this.con.prepareStatement(query);
+		 	  
+			psmt.setString(1, name);
+			psmt.setString(2, category);
+			psmt.setString(3, img);
+			psmt.setDouble(4, price);
+			
+			if(DBCon.insertData(psmt) > 0) {
+				return true;
+			}
+		    else {
+				return false;
+			}
+			
+		    }catch(Exception e) {
+			e.printStackTrace();
+		    }
+
+			return false;
 	}
 }
